@@ -1,6 +1,6 @@
 package com.niit.model;
 
-public class Error {
+public class Error { 
 	private int code;
 	private String message;
 	

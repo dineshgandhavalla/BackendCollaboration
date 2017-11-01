@@ -34,7 +34,7 @@ public class Chat
 	{
 		this.from = from;
 	}
-
+ 
 	@Override
 	public String toString() 
 	{
