@@ -29,7 +29,7 @@ import com.niit.model.Job;
 import com.niit.model.ProfilePicture;
 import com.niit.model.Users;
 
-
+ 
 
 
 public class DBConfig
