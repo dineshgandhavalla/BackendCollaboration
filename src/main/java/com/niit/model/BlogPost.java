@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="blogpost_batch19")
+@Table(name="Blogpost")
 public class BlogPost
 {
 	@Id
