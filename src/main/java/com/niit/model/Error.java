@@ -1,7 +1,7 @@
 package com.niit.model;
 
 public class Error { 
-	private int code;
+	private int code; 
 	private String message;
 	
 	public Error(int code,String message)

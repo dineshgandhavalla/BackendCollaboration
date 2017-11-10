@@ -29,6 +29,7 @@ private Date commentedOn;
 @JoinColumn(name="blogpost_id")
 private BlogPost blogPost;
 private String body;
+
 public int getId() {
 	return id;
 }

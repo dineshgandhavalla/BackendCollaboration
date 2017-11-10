@@ -8,11 +8,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ProPic")
 public class ProfilePicture {
-	@Id
+@Id
 private String username;
-	@Lob
+@Lob
 private byte[] image;
-	public String getUsername() {
+
+public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {

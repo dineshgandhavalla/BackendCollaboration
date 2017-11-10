@@ -35,7 +35,7 @@ public class Chat
 		this.from = from;
 	}
  
-	@Override
+ 	@Override
 	public String toString() 
 	{
 		return "Chat [message=" + message + ", to=" + to + "]";

@@ -27,6 +27,7 @@ public class BlogPost
 	private Users createdBy;
 	private Date postedOn;
 	private boolean approved;
+	
 	public int getId()
 	{
 		return id;
