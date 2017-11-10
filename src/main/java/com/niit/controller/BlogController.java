@@ -1,11 +1,8 @@
 package com.niit.controller;
-
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.text.rtf.RTFEditorKit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -76,43 +73,39 @@ public ResponseEntity<?> getBlogPost(@PathVariable int id,HttpSession session){
 	}
 	BlogPost blogPost=blogPostDao.getBlogById(id);
 	return new ResponseEntity<BlogPost>(blogPost,HttpStatus.OK);
-			
 	
 }
 
 @RequestMapping(value="/updateApproval",method=RequestMethod.PUT) 
 public ResponseEntity<?> updateBlogPost(@RequestBody BlogPost blogPost,HttpSession session){
 	Users users=(Users)session.getAttribute("user");
+
 	if(users==null)
 	{
-		
 		Error error=new Error(3,"UnAutorized user");
-	
 		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 }
-blogPostDao.updateBlogPost(blogPost);
-return new ResponseEntity<Void>(HttpStatus.OK);
+	blogPostDao.updateBlogPost(blogPost);
+	return new ResponseEntity<Void>(HttpStatus.OK);
 
 }
 
 @RequestMapping(value="/addblogcomment",method=RequestMethod.POST) 
 public ResponseEntity<?> addBlogComment(@RequestBody BlogComment blogComment,HttpSession session){
 	Users users=(Users)session.getAttribute("user");
+
 	if(users==null)
 	{
-		
 		Error error=new Error(3,"UnAutorized user");
-	
 		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 }
 	try
 	{
 		blogComment.setCommentedBy(users);
 		blogComment.setCommentedOn(new Date());
-	
-blogPostDao.addBlogComment(blogComment);
-return new ResponseEntity<Void>(HttpStatus.OK);
-}
+		blogPostDao.addBlogComment(blogComment);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
 	catch(Exception e)
 	{
 		Error error=new Error(4,"Unable to add comment"+e.getMessage());
@@ -120,6 +113,7 @@ return new ResponseEntity<Void>(HttpStatus.OK);
 		return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
+
 @RequestMapping(value="/getblogcomments/{blogPostId}",method=RequestMethod.GET)
 public ResponseEntity<?> blogComments(@PathVariable int blogPostId,HttpSession session){
 	Users user = (Users)session.getAttribute("user");
