@@ -10,10 +10,6 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
- 
-
-
-
 @Configuration
 @EnableWebSocketMessageBroker  // enable broker based stomp messaging
 @EnableScheduling
@@ -21,15 +17,12 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 public class WebSocketconfiguration implements WebSocketMessageBrokerConfigurer
 {
 
-
-	
-
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		System.out.println("REGISTER STOMP ENDPOINTS...");
 		registry.addEndpoint("/portfolio").withSockJS();
 	}
 
-	
+
 	public void configureMessageBroker(MessageBrokerRegistry  configurer) {
 		System.out.println("CONFIGURE MESSAGE BROKER REGISTRY");
 		configurer.enableSimpleBroker("/queue/", "/topic/");

@@ -28,10 +28,6 @@ import com.niit.model.Friend;
 import com.niit.model.Job;
 import com.niit.model.ProfilePicture;
 import com.niit.model.Users;
-
-  
-
-
 public class DBConfig
 
 {
@@ -43,7 +39,7 @@ public class DBConfig
 		dataSource.setUsername("dbtest");
 		dataSource.setPassword("pass");
 
-		System.out.println("DataBase is connected.........!");
+		System.out.println("DataBase connected.........!");
 		return dataSource;
 
 	}
@@ -78,7 +74,7 @@ public class DBConfig
 		  sessionBuilder.addAnnotatedClasses(ForumComment.class);
 		 sessionBuilder.addAnnotatedClasses(BlogLikes.class);*/
 		 
-		System.out.println("Session is crated................!");
+		System.out.println("Session created");
 
 		return sessionBuilder.buildSessionFactory();
 
@@ -88,7 +84,7 @@ public class DBConfig
 	@Bean(name = "transactionManager")
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
-		System.out.println("Transaction is crated............!");
+		System.out.println("Transaction created");
 		return transactionManager;
 	}
 	
